@@ -71,4 +71,4 @@ class BingEngine():
         except Exception as e:
             pass
 
-        return results
+        return results, result_len
