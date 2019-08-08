@@ -10,6 +10,7 @@ sanic = "*"
 pydotenv = "*"
 lxml = "*"
 babel = "*"
+requests = "*"
 
 [requires]
 python_version = "3.7"

@@ -43,12 +43,6 @@ ecma_unescape2_re = re.compile(r'%([0-9a-fA-F]{2})', re.UNICODE)
 
 lang_to_lc_cache = dict()
 
-
-
-def gen_useragent(os=None):
-    return str(useragents['ua'].format(os=os or choice(useragents['os']), version=choice(useragents['versions'])))
-
-
 def highlight_content(content, query):
 
     if not content:

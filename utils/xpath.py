@@ -3,8 +3,8 @@
 
 from lxml import html
 from lxml.etree import _ElementStringResult, _ElementUnicodeResult
-from utils import html_to_text
-from url_utils import unquote, urlencode, urljoin, urlparse
+from utils.utils import html_to_text
+from utils.url_utils import unquote, urlencode, urljoin, urlparse
 
 search_url = None
 url_xpath = None
