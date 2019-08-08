@@ -17,6 +17,17 @@ class BingEngine():
     def _get_offset_from_pageno(self, pageno):
         return (pageno - 1) * 10 + 1
 
+    def search(self, keyword="", pageno=1):
+        results = []
+        result_len = 0
+
+        for i in range(5):
+            if results != []:
+                break
+            results, result_len = self.query(keyword, pageno)
+
+        return results, result_len
+
     def query(self, keyword="", pageno=1):
         results = []
         result_len = 0
