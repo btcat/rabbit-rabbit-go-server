@@ -8,6 +8,8 @@ verify_ssl = true
 [packages]
 sanic = "*"
 pydotenv = "*"
+lxml = "*"
+babel = "*"
 
 [requires]
 python_version = "3.7"
