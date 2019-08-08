@@ -9,7 +9,7 @@ from utils.utils import match_language
 
 class BingEngine():
     def __init__(self):
-        self.base_url = "https://cn.bing.com/"
+        self.base_url = "https://www.bing.com/"
         self.search_string = "search?q={query}&first={offset}"
 
     def _get_offset_from_pageno(self, pageno):
