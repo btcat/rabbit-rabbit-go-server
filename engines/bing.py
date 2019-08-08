@@ -6,21 +6,23 @@ from utils.xpath import extract_text
 from utils.url_utils import urlencode
 from lxml import html
 from utils.utils import match_language
+import string
+import random
 
 class BingEngine():
     def __init__(self):
-        self.base_url = "https://www.bing.com/"
+        self.base_url = "https://cn.bing.com/"
         self.search_string = "search?q={query}&first={offset}"
 
     def _get_offset_from_pageno(self, pageno):
         return (pageno - 1) * 10 + 1
 
-    def query(self, keyword="", pageno=1, langcode="ZH"):
+    def query(self, keyword="", pageno=1):
         results = []
         result_len = 0
 
         offset = self._get_offset_from_pageno(pageno)
-        querystring = "language:{} {}".format(langcode.upper(), keyword)
+        querystring = "{}".format(keyword)
 
         search_path = self.search_string.format(
             query=querystring,
@@ -28,8 +30,8 @@ class BingEngine():
         )
 
         resp = get(self.base_url + search_path, headers={
-            'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36'
-        })
+            'user-agent': ''.join(random.sample(string.ascii_letters + string.digits, 24))
+        }, proxies={"http":"{}.{}.{}.{}".format(random.randint(10, 99), random.randint(10, 99), random.randint(10, 99), random.randint(10, 99))})
 
         dom = html.fromstring(resp.text)
         # parse results
