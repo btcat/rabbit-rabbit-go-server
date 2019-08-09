@@ -4,9 +4,9 @@
 from sanic import Sanic
 from os import environ
 import config
-from engines.stackoverflow import StackoverflowEngine
+from engines.github import GithubEngine
 
-a = (StackoverflowEngine().search(input("a:"), 2))
+a = (GithubEngine().query(input("a:"), 1))
 print(a)
 
 #app = Sanic()
