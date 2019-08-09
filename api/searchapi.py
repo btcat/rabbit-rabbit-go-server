@@ -12,7 +12,7 @@ mergeor = Mergeor()
 def search(request):
     keyword = request.form.get("keyword")
     pageno = request.form.get("pageno")
-    result = mergeor.search(keyword, pageno)
+    result = mergeor.search(keyword, int(pageno))
     
     return json({
         'code': 0,

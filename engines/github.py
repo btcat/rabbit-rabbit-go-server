@@ -13,7 +13,7 @@ class GithubEngine():
     def search(self, keyword="", pageno=1):
         results = []
     
-        for i in range(5):
+        for i in range(2):
             if results != []:
                 break
             results = self.query(keyword, pageno)
@@ -47,9 +47,6 @@ class GithubEngine():
             results.append({'url': url,
                             'title': title,
                             'content': content})
-
-        try:
-            offset = pageno * 10
-            return results[1+offset-11:offset]
-        except:
-            return []
+        
+        offset = pageno * 10
+        return results[1+offset-11:offset]

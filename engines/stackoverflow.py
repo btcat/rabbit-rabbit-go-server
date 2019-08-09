@@ -18,7 +18,7 @@ class StackoverflowEngine():
     def search(self, keyword="", pageno=1):
         results = []
 
-        for i in range(5):
+        for i in range(2):
             if results != []:
                 break
             results = self.query(keyword, pageno)
