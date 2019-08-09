@@ -2,12 +2,12 @@
 # -*- encoding: utf-8 -*-
 
 from sanic import Sanic
-from os import environ
+from api.searchapi import searchbluepoint
 import config
-from mergeor.mergeor import Mergeor
+from os import environ
 
-print(Mergeor().search("bug", 1))
+app = Sanic(load_env=True)
 
-#app = Sanic()
+app.blueprint(searchbluepoint)
 
-#app.run(host="0.0.0.0", port=environ["PORT"])
+app.run()
