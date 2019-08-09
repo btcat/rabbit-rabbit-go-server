@@ -11,7 +11,7 @@ class Mergeor():
 
     def search(self, keyword="", pageno=1):
         github = self.github.search(keyword, pageno)
-        stackover = self.github.search(keyword, pageno)
+        stackover = self.stackoverflow.search(keyword, pageno)
         return {
             'github': github,
             'stackoverflow': stackover,

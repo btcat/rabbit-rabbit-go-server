@@ -4,10 +4,9 @@
 from sanic import Sanic
 from os import environ
 import config
-from engines.github import GithubEngine
+from mergeor.mergeor import Mergeor
 
-a = (GithubEngine().query(input("a:"), 1))
-print(a)
+print(Mergeor().search("bug", 1))
 
 #app = Sanic()
 
