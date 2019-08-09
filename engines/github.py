@@ -9,6 +9,16 @@ class GithubEngine():
     def __init__(self):
         self.search_url = 'https://api.github.com/search/repositories?sort=stars&order=desc&q={query}'
         self.accept_header = 'application/vnd.github.preview.text-match+json'
+    
+    def search(self, keyword="", pageno=1):
+        results = []
+    
+        for i in range(5):
+            if results != []:
+                break
+            results = self.query(keyword, pageno)
+            
+        return results
 
     def query(self, keyword="", pageno=1):
         resp = get(self.search_url.format(query=keyword), headers={
